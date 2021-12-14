@@ -11,14 +11,22 @@ class mahasiswa_controller extends Controller
         $data_mahasiswa = mahasiswa::all();
         return view('mahasiswa.surat',compact('data_mahasiswa'));
     }
+    public function suratkeluarmhs(){
+        $data_mahasiswa = mahasiswa::all();
+        return view('mahasiswa.index',compact('data_mahasiswa'));
+    }
+    public function suratmasukmhs(){
+        $data_mahasiswa = mahasiswa::all();
+        return view('mahasiswa.suratmasuk',compact('data_mahasiswa'));
+    }
     public function mahasiswa(){
         $data_mahasiswa = mahasiswa::all();
         return view('layout.layout',compact('data_mahasiswa'));
     }
 
     public function tambah(Request $request){
-        \App\mahasiswa ::create($request->all());
-        return redirect('mahasiswa')->with('sukses','Silahkan melakukan pengajuan!');
+        mahasiswa::create($request->all());
+        return redirect('index')->with('sukses','Surat telah diajukan!');
     }
 
     public function findidmhs($id){
@@ -39,5 +47,11 @@ class mahasiswa_controller extends Controller
         $data_mahasiswa->ket = $request->input('ket');
         $data_mahasiswa->save();
         return redirect()->route('indexmhs');
+    }
+    
+    public function delete($id){
+        $data_mahasiswa = mahasiswa::find($id);
+        $data_mahasiswa->delete();
+        return redirect('mahasiswa')->back();
     }
 }

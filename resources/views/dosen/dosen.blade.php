@@ -1,6 +1,7 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">   
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -33,7 +34,7 @@
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="{{route('logoutdosen')}}">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -43,15 +44,27 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="/suratdsn">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Pengajuan Surat 
+                                Pengajuan Surat Tugas
                             </a>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="/beritaacaradsn">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Pengajuan Berita Acara
+                            </a>
+                            <a class="nav-link" href="/srtpersonalia">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Pengajuan Surat Personalia
+                            </a>
+                            <a class="nav-link" href="/srtpermohonan">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Pengajuan Surat Permohonan
+                            </a>
+                            <a class="nav-link" href="suratmasukdsn">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Kotak Masuk  
                             </a>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="/suratkeluardsn">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Kotak Keluar 
                             </a>
@@ -65,5 +78,8 @@
         <script src="{{asset('Asset/assets/demo/chart-bar-demo.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="{{asset('Asset/js/datatables-simple-demo.js')}}"></script>
+        <main class="py-4">
+                @yield('content')
+                </main>  
     </body>
 </html>
