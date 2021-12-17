@@ -73,4 +73,12 @@ route::get('/suratpermohonanmhs','srtpermohonanmhs_controller@suratpermohonanmhs
 route::post('/surat/tambahsrtpermhs','srtpermohonanmhs_controller@tambahsrtpermhs');
 
 route::get('/admin','tampilan_controlle@viewadmin'); 
-
+route::get('/viewadmin','admin_controller@viewadminmhs'); 
+route::get('/suratmasukmhs','admin_controller@adminsuratmasukmhs'); 
+route::get('/adminberitaacara','admin_controller@adminberitaacaramhs');
+route::get('/adminpersonaliamhs','admin_controller@adminpersonaliamhs');
+route::get('/adminpermohonanmhs','admin_controller@adminpermohonanmhs');
+route::get('/surattugasdsn','admin_controller@adminsurattugasdsn');
+route::get('/adminberitaacaradsn','admin_controller@adminberitaacaradsn');
+route::get('/adminpersonaliadsn','admin_controller@adminpersonaliadsn');
+route::get('/adminpermohonandsn','admin_controller@adminpermohonandsn');

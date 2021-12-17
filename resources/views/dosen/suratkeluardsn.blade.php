@@ -89,11 +89,10 @@
                             </div>
                         </div>
                         <div class="row">
-                         
-        <h1>Daftar Surat Tugas Dosen</h1> 
-    ,,,
+                             
     </div>
     <br>
+    <h1>Daftar Surat Tugas Dosen</h1>
     <table class="table">
         <tr>
                <th>Tanggal Pelasanaan</th> 

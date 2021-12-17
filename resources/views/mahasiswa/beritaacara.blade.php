@@ -28,7 +28,8 @@
                <th>Tanggal Pelasanaan</th> 
                <th>Lokasi Kegiatan</th>
                <th>Nama Mitra</th> 
-               <th>Keterangan</th> 
+               <th>Keterangan</th>
+               <th>Action</th> 
                </tr>
           @foreach ($data_beritaacara as $beritaacaramhs)
               <tr>
@@ -36,7 +37,15 @@
               <td>{{$beritaacaramhs->tgl_pelaksanaan}}</td> 
               <td>{{$beritaacaramhs->lksi_kgt}}</td> 
               <td>{{$beritaacaramhs->nm_mitra}}</td> 
-              <td>{{$beritaacaramhs->ket}}</td> 
+              <td>{{$beritaacaramhs->ket}}</td>
+              <td><ul class="right">
+              <button type="button" class="btn btn-primary" data-toggle="" data-target="#exampleModal">
+               Delete
+             </button>
+             <button type="button" class="btn btn-primary" data-toggle="" data-target="#exampleModal">
+               Edit
+             </button>
+             </ul></td>
              </tr>
              @endforeach
           

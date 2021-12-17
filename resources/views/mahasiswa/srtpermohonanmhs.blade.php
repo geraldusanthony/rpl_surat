@@ -28,13 +28,22 @@
                <th>Lokasi Kegiatan</th>
                <th>Nama Mitra</th> 
                <th>Keterangan</th> 
+               <th>Action</th>
                </tr>
           @foreach ($data_srtpermohonanmhs as $srtpermohonanmhs)
               <tr>
               <td>{{$srtpermohonanmhs->tgl_pelaksanaan}}</td>   
               <td>{{$srtpermohonanmhs->lksi_kgt}}</td> 
               <td>{{$srtpermohonanmhs->nm_mitra}}</td> 
-              <td>{{$srtpermohonanmhs->ket}}</td> 
+              <td>{{$srtpermohonanmhs->ket}}</td>
+              <td><ul class="right">
+              <button type="button" class="btn btn-primary" data-toggle="" data-target="#exampleModal">
+               Delete
+             </button>
+             <button type="button" class="btn btn-primary" data-toggle="" data-target="#exampleModal">
+               Edit
+             </button>
+             </ul></td>
              </tr>
              @endforeach
           

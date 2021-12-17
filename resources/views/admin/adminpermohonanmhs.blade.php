@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard Dosen</title>
+        <title>Dashboard Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="{{asset('Asset/css/styles.css')}}" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -15,7 +15,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">DOSEN</a> 
+            <a class="navbar-brand ps-3" href="index.html">ADMIN</a> 
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -33,8 +33,7 @@
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
-
+                        <li><a class="dropdown-item" href="{{route('logoutadmin')}}">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -44,130 +43,110 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link" href="/suratdsn">
+                            <a class="nav-link" href="/suratmasukmhs">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Pengajuan Surat Tugas
+                                Kotak Masuk Mahasiswa
                             </a>
-                            <a class="nav-link" href="/beritaacaradsn">
+                            <a class="nav-link" href="adminberitaacara">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Pengajuan Berita Acara
+                                Berita Acara Mahasiswa
                             </a>
-                            <a class="nav-link" href="/srtpersonalia">
+                            <a class="nav-link" href="adminpersonaliamhs">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Pengajuan Surat Personalia
+                                Surat Personalia Mahasiswa 
                             </a>
-                            <a class="nav-link" href="/srtpermohonan">
+                            <a class="nav-link" href="adminpermohonanmhs">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Pengajuan Surat Permohonan
+                                Surat Permohonan Mahasiswa
                             </a>
-                            <a class="nav-link" href="/suratmasukdsn">
+                            <a class="nav-link" href="surattugasdsn">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Kotak Masuk  
+                                Surat Tugas Dosen
                             </a>
-                            <a class="nav-link" href="/suratkeluardsn">
+                            <a class="nav-link" href="adminberitaacaradsn">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Kotak Keluar 
+                                Berita Acara Dosen 
                             </a>
+                            <a class="nav-link" href="adminpersonaliadsn">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Surat Personalia Dosen 
+                            </a>
+                            <a class="nav-link" href="adminpermohonandsn">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Surat Permohonan Dosen
+                            </a>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Kotak Keluar  
+                            </a>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Tambah Data 
+                            </a>
+                            
              </div>
-        </div>
+             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
-                Dosen 
+                Admin 
             </div>
         </nav>
     </div>
         <div id="layoutSidenav_content">
                 <main>
-     <div class="row">
-     </div>
-    <br>
-      <ul class="left"> 
-        <h1>Input Surat Personalia </h1> 
-      </ul>
-    <br>
-<div class="container">
-  @if(session('sukses'))
-      <div class="alert alert-success" role="alert">
-       {{session('sukses')}}
-      </div>
-  @endif
-    <div class="row">
-        <div class="col-6">
-             <!-- Button trigger modal -->
-             <ul class="right">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-               Ajukan Surat 
-             </button>
+                    <tr>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            @if(session('sukses'))
+                                <div class="alert alert-success" role="alert">
+                                    {{session('sukses')}}
+                                </div>
+                            @endif
+                            </div>
+                        </div>
+                       
              
-            </ul>
-            <table class="table">
+                        
+    <div class="row">
+    </div>
+    <h1>Daftar Surat Permohonan Mahasiswa</h1> 
+        <br>
+        <table class="table">
               <tr>
+               <th>Tanggal Pelasanaan</th> 
                <th>Lokasi Kegiatan</th>
                <th>Nama Mitra</th> 
                <th>Keterangan</th>
-               <th>Action</th> 
+               <th>Verifikasi</th> 
                </tr>
-          @foreach ($data_srtpersonalia as $srtpersonaliadsn)
+          @foreach ($data_srtpermohonanmhs as $srtpermohonanmhs)
               <tr>
-              <td>{{$srtpersonaliadsn->lksi_kgt}}</td> 
-              <td>{{$srtpersonaliadsn->nm_mitra}}</td> 
-              <td>{{$srtpersonaliadsn->ket}}</td>
+              <td>{{$srtpermohonanmhs->tgl_pelaksanaan}}</td> 
+              <td>{{$srtpermohonanmhs->lksi_kgt}}</td> 
+              <td>{{$srtpermohonanmhs->nm_mitra}}</td> 
+              <td>{{$srtpermohonanmhs->ket}}</td>
               <td><ul class="right">
               <button type="button" class="btn btn-primary" data-toggle="" data-target="#exampleModal">
-               Delete
+               Terima
              </button>
              <button type="button" class="btn btn-primary" data-toggle="" data-target="#exampleModal">
-               Edit
+               Tolak
              </button>
-            </ul></td>
+             </ul></td>
              </tr>
              @endforeach
           
     </div>
           </div>
             </div>  
-            </main>
+             
         </div>
-    </div>
-    
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pengajuan Surat Personalia</h5>  
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
-      
-        <form action="/surat/tambahsrtpl" method="POST">
-          {{csrf_field()}}
-          <div class="form-group">
-              <label for="exampleInputEmail1">Lokasi Kegiatan</label>
-              <input name="lksi_kgt"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-           </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Nama Mitra</label>
-            <textarea name="nm_mitra"class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Keterangan</label>
-            <textarea name="ket"class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-          </div>
-          
-      </div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="{{asset('Asset/js/scripts.js')}}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="{{asset('Asset/assets/demo/chart-area-demo.js')}}"></script>
+        <script src="{{asset('Asset/assets/demo/chart-bar-demo.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="{{asset('Asset/js/datatables-simple-demo.js')}}"></script>
+    </body>
 </html>

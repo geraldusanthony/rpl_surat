@@ -43,19 +43,19 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link" href="suratmasukmhs">
+                            <a class="nav-link" href="/suratmasukmhs">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Surat Tugas Mahasiswa
+                                Kotak Masuk Mahasiswa
                             </a>
-                            <a class="nav-link" href="adminberitaacara">
+                            <a class="nav-link" href="/adminberitaacara">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Berita Acara Mahasiswa
                             </a>
-                            <a class="nav-link" href="adminpersonaliamhs">
+                            <a class="nav-link" href="/adminpersonaliamhs">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Surat Personalia Mahasiswa 
                             </a>
-                            <a class="nav-link" href="adminpermohonanmhs">
+                            <a class="nav-link" href="/adminpermohonanmhs">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Surat Permohonan Mahasiswa
                             </a>
@@ -85,6 +85,57 @@
                             </a>
                             
              </div>
+             </div>
+            <div class="sb-sidenav-footer">
+                <div class="small">Logged in as:</div>
+                Admin 
+            </div>
+        </nav>
+    </div>
+        <div id="layoutSidenav_content">
+                <main>
+                    <tr>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            @if(session('sukses'))
+                                <div class="alert alert-success" role="alert">
+                                    {{session('sukses')}}
+                                </div>
+                            @endif
+                            </div>
+                        </div>
+                       
+             
+    <div class="row">
+    </div>
+    <h1>Daftar Surat Personalia Mahasiswa</h1>   
+    <br>
+    <table class="table">
+        <tr>
+               <th>Lokasi Kegiatan</th>
+               <th>Nama Mitra</th> 
+               <th>Keterangan</th> 
+               <th>Verifikasi</th> 
+               </tr>
+          @foreach ($data_srtpersonaliamhs as $srtpersonaliamhs)
+              <tr>
+              <td>{{$srtpersonaliamhs->lksi_kgt}}</td> 
+              <td>{{$srtpersonaliamhs->nm_mitra}}</td> 
+              <td>{{$srtpersonaliamhs->ket}}</td>
+              <td><ul class="right">
+              <button type="button" class="btn btn-primary" data-toggle="" data-target="#exampleModal">
+               Terima
+             </button>
+             <button type="button" class="btn btn-primary" data-toggle="" data-target="#exampleModal">
+               Tolak 
+             </button>
+            </ul></td>
+              </tr>
+             @endforeach
+          
+        </div>
+          </div>
+            </div>  
              
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
